@@ -43,7 +43,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::group(['middleware' => 'admin'], function(){
         // ---- ADMIN DASHBOARD PRINCIPAL VIEW --------
         Route::get('/admin/inicio', [AdminController::class, 'index'])->name('admin.index');
-        // ----- VIEW LIST OF ALL COURSES ---------------------
+        // ----- All Courses List view ---------------------
         Route::get('/admin/Cursos/', [AdminCourseController::class, 'index'])->name('admin.course.index');
         // ----- COURSE FOLDERS VIEWS-----------------------
         Route::get('/admin/Cursos/{course}', [AdminCourseController::class, 'show'])->name('admin.course.show');
@@ -79,7 +79,6 @@ Route::group(['middleware' => 'auth'], function(){
         
         Route::get('/aula/e-learning/{course}/evaluaciones', [AulaEvaluationController::class, 'index'])->name('aula.course.evaluation.index');
         Route::get('/aula/e-learning/{certification}/pregunta/{num_question}', [QuizController::class, 'show'])->name('aula.course.quiz.show');
-
 
 
         Route::get('/aula/e-learning/{course}/carpetas', [AulaFolderController::class, 'index'])->name('aula.course.folder.index');
